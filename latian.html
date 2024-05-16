@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Selamat Ulang Tahun</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .birthday-message,
+        .thanks, .makan {
+            background-color: transparent;
+            border-radius: 7px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 100%;
+            box-shadow: 5px 20px 15px rgba(0, 0, 0, 0.9);
+        }
+
+        h1 {
+            color: #ff9800;
+        }
+
+        p {
+            color: white;
+        }
+
+        .thanks {
+            display: none;
+        }
+
+        /* Style untuk tombol */
+        #transitionButton,#transitionButton1,#transitionButton2 {
+            background-color: #ff9800;
+            /* Warna latar tombol */
+            color: white;
+            /* Warna teks tombol */
+            border: none;
+            /* Menghilangkan border */
+            padding: 10px 20px;
+            /* Padding di sekitar teks */
+            border-radius: 5px;
+            /* Membuat sudut tombol membulat */
+            cursor: pointer;
+            /* Mengubah cursor saat mengarah ke tombol */
+            font-size: 16px;
+            /* Ukuran font teks tombol */
+            transition: background-color 0.3s ease;
+            /* Transisi warna latar saat di-hover */
+        }
+
+        /* Mengubah warna latar tombol saat di-hover */
+        #transitionButton:hover {
+            background-color: #e68a00;
+        }
+
+        /* Menambahkan efek shadow pada tombol saat di-klik */
+        #transitionButton:active {
+            box-shadow: 0 2px #666;
+            transform: translateY(4px);
+        }
+
+        /* Style untuk pop-up */
+        #audioPopup {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            text-align: center;
+            display: none;
+            /* Lebih tinggi dari latar belakang */
+            /* Pop-up awalnya disembunyikan */
+        }
+
+        #audioPopup {
+            /* ... (sisanya dari CSS Anda) ... */
+            z-index: 1001;
+            /* Hanya satu definisi z-index */
+        }
+
+        /* Style untuk kotak pop-up */
+        .popup-box {
+            display: inline-block;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Style untuk tombol close */
+        .bolehin,
+        .gamau {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .blur {
+            filter: blur(20px);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            /* Jarak antara tombol */
+        }
+
+        .background {
+            padding: 50px;
+            height: 90vh;
+            background-image: url(gambar1.jpg);
+            background-size: cover;
+            /* Pastikan gambar menutupi seluruh halaman */
+            background-position: center;
+            /* Pusatkan gambar */
+            background-repeat: no-repeat;
+        }
+
+        .background-blur {
+            filter: blur(8px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="audioPopup">
+        <div class="popup-box">
+            <h2>Mau Sambil dengerin musik?</h2>
+            <p style="color: black;">Kasih izin dulu yuk</p>
+            <div class="tenor-gif-embed" data-postid="26935147" data-share-method="host" data-aspect-ratio="1"
+                data-width="100%"><a href="https://tenor.com/view/bubu-dudu-stickers-gif-26935147">Bubu Dudu
+                    Stickers Sticker</a>from <a href="https://tenor.com/search/bubu+dudu+stickers-stickers">Bubu
+                    Dudu Stickers Stickers</a></div>
+            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+            <audio style="display: none;" id="audioPlayer" controls>
+                <source src="lagu.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung tag audio.
+            </audio>
+            <br>
+            <div class="button-container">
+                <button class="bolehin" onclick="playAudio()">Bolehin</button>
+                <button class="gamau" onclick="hideGamauButton()">Gamau</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="background">
+
+
+        <div class="birthday-message">
+            <h1>🎉 Selamat Ulang Tahun! 🎉</h1>
+            <img src="https://i.pinimg.com/originals/c2/b7/48/c2b748ecb803057c9382c95b6e8d0672.jpg" alt="ultah"
+                style="width: 200px; height: 200px;">
+            <p style="padding: 0px 200px;">🌟 Happy Birthday Meii! 🌟<br> Semoga dengan bertambahnya usia yang ke-20
+                makin imut,sehat selalu, tambah pinter apalagi rajin hehe,dan semoga yang dipengenin tercapai,pokoknya
+                yang ++<br>Amiin🎈🎊</p>
+            <button id="transitionButton">Next</button>
+        </div>
+        <div class="thanks">
+            <h1>🎉 Selamat Ulang Tahun 🎉</h1>
+            <img src="gambar2.gif" alt="ultah" style="width: 200px; height: 200px;">
+            <p style="padding: 0px 200px;">Tetep Semangat Kuliahnya 🔥🔥🔥 dan Jangan lupa makan tepat waktu 🍽</p>
+            <button id="transitionButton1">Next</button>
+        </div>
+        <div class="makan" style="display: none;">
+            <h1>🎉 Selamat Ulang Tahun 🎉</h1>
+            <img src="gambar3.gif" alt="ultah" style="width: 200px; height: 200px;">
+            <p style="padding: 0px 200px;">Udah malem Jan lupa tidur 😴 dan Semoga ga sering kebangun tengah malem ☺</p>
+            
+        </div>
+
+    </div>
+
+    <script>
+        var audioElement = document.getElementById('audioPlayer');
+        var birthdayElement = document.querySelector('.birthday-message');
+        var background = document.querySelector('.background');
+        var thanksElement = document.querySelector('.thanks');
+        var makanElement = document.querySelector('.makan')
+        var gamauButton = document.querySelector('.gamau');
+
+        function playAudio() {
+            audioElement.play();
+            closePopup();
+        }
+
+        function closePopup() {
+            var popup = document.getElementById('audioPopup').style.display = 'none';
+            birthdayElement.classList.remove('blur');
+            background.classList.remove('blur');
+        }
+
+        function hideGamauButton() {
+            gamauButton.style.display = 'none';
+        }
+
+        function showAudioPopup() {
+            var popup = document.getElementById('audioPopup');
+            popup.style.display = 'block';
+            birthdayElement.classList.add('blur');
+            background.classList.add('blur');
+            gamauButton.style.display = 'block';
+        }
+
+        function showThanks() {
+            thanksElement.style.display = 'block';
+            birthdayElement.style.display = 'none';
+        }
+
+        function goToMakan() {
+            makanElement.style.display = 'block';
+            thanksElement.style.display = 'none';
+        }
+
+
+
+        // Menghubungkan fungsi goToMakan ke tombol transitionButton1
+        document.getElementById('transitionButton1').onclick = goToMakan;
+
+        document.getElementById('transitionButton').onclick = showThanks;
+        window.onload = showAudioPopup;
+
+        function moveNextButton() {
+            const randomPosition = Math.random() < 0.5 ? 'left' : 'right';
+            document.getElementById('transitionButton2').style.float = randomPosition;
+            function showMessage() {
+            const message = "Sudah Tidur Hehe";
+            alert(message);
+        }
+        }
+        document.getElementById('transitionButton2').onclick = moveNextButton;
+    </script>
+</body>
+
+</html>
